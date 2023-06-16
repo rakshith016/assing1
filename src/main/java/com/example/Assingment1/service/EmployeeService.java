@@ -17,7 +17,7 @@ public interface EmployeeService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Employee addEMployee(EmployeeDTO employeeDTO) throws Exception;
+	public Employee addEmployee(EmployeeDTO employeeDTO) throws Exception;
 	
 	/**
 	 * TO Update Employee Details
@@ -25,7 +25,7 @@ public interface EmployeeService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Employee UpdateEMployee(EmployeeDTO employeeDTO) throws Exception;
+	public Employee updateEmployee(EmployeeDTO employeeDTO) throws Exception;
 	
 	/**
 	 * To Delete Employee Details
@@ -33,7 +33,7 @@ public interface EmployeeService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Boolean DeleteEMployee(Long empID) throws Exception;
+	public Boolean deleteEmployee(Long empID) throws Exception;
 
 	/**
 	 * To Find EMployee by Id
@@ -41,13 +41,13 @@ public interface EmployeeService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Employee FindEMployeeById(Long empID) throws Exception;
+	public Employee findEmployeeById(Long empID) throws Exception;
 
 	/**
 	 * To Find All employee
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Employee> FindEMployeeB() throws Exception;
+	public List<Employee> findEmployeeB() throws Exception;
 
 }

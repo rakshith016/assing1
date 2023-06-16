@@ -17,7 +17,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	private EmpRepo empRepo;
 
 	@Override
-	public Employee addEMployee(EmployeeDTO employeeDTO) throws Exception {
+	public Employee addEmployee(EmployeeDTO employeeDTO) throws Exception {
 		Employee employee = new Employee();
 		employee.setName(employeeDTO.getName());
 		employee.setAge(employeeDTO.getAge());
@@ -27,7 +27,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public Employee UpdateEMployee(EmployeeDTO employeeDTO) throws Exception {
+	public Employee updateEmployee(EmployeeDTO employeeDTO) throws Exception {
 
 		Employee employee = this.empRepo.findById(employeeDTO.getId()).get();
 
@@ -44,7 +44,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public Boolean DeleteEMployee(Long empID) throws Exception {
+	public Boolean deleteEmployee(Long empID) throws Exception {
 		Employee employee = this.empRepo.findById(empID).get();
 
 		if (employee != null) {
@@ -56,7 +56,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public Employee FindEMployeeById(Long empID) throws Exception {
+	public Employee findEmployeeById(Long empID) throws Exception {
 
 		Employee employee = this.empRepo.findById(empID).get();
 
@@ -65,7 +65,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> FindEMployeeB() throws Exception {
+	public List<Employee> findEmployeeB() throws Exception {
 		List<Employee> employee = this.empRepo.findAll();
 		return employee;
 	}
