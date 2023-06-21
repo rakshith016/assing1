@@ -37,5 +37,12 @@ public class EmployeeDTO {
 		this.age = age;
 	}
 
+	public EmployeeDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
     
 }

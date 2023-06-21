@@ -1,5 +1,6 @@
 package com.example.Assingment1.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,7 @@ public class Employee {
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     
     private String name;
     
@@ -42,15 +43,14 @@ public class Employee {
 		this.age = age;
 	}
 
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Employee(Long id, String name, Long age) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
-	}
-
-	public Employee() {
-		// TODO Auto-generated constructor stub
 	}
     
     

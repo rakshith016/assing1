@@ -5,33 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+
 import com.example.Assingment1.dto.EmployeeDTO;
 import com.example.Assingment1.model.Employee;
 import com.example.Assingment1.service.EmployeeService;
 
-@RestController
+@Controller
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService employeeService;
+	private EmployeeService employeeService;
 
 	@PostMapping("/add")
-	public ResponseEntity<Employee> addEmployee(@RequestBody EmployeeDTO employee) {
+	public Employee addEmployee(@RequestBody EmployeeDTO employee) {
 
 		Employee employee2 = null;
 		try {
-			employee2 = this.employeeService.addEMployee(employee);
+			employee2 = this.employeeService.addEmployee(employee);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<>(employee2, HttpStatus.OK);
+		return employee2;
 	}
 
 	@PutMapping("/update")
@@ -39,7 +40,7 @@ public class EmployeeController {
 
 		Employee employee2 = null;
 		try {
-			employee2 = this.employeeService.UpdateEMployee(employee);
+			employee2 = this.employeeService.updateEmployee(employee);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,34 +48,34 @@ public class EmployeeController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteEmployeeById(@PathVariable("id") Long empId) throws Exception {
+	public Boolean deleteEmployeeById(@PathVariable("id") Long empId) throws Exception {
 
-		this.employeeService.DeleteEMployee(empId);
-		return new ResponseEntity<>(true, HttpStatus.OK);
+		this.employeeService.deleteEmployee(empId);
+		return true;
 	}
 	
 	@GetMapping("/employee/get/{id}")
-	public ResponseEntity<?> getEmployeeById(@PathVariable("id") Long empId) throws Exception {
+	public Employee getEmployeeById(@PathVariable("id") Long empId) throws Exception {
 
 		Employee employee2 = null;
 		try {
-			employee2 = this.employeeService.FindEMployeeById(empId);
+			employee2 = this.employeeService.findEmployeeById(empId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<>(employee2, HttpStatus.OK);
+		return employee2;
 	}
 	
 	@GetMapping("/employee/get")
-	public ResponseEntity<?> getEmployeeById() throws Exception {
+	public List<Employee> getEmployeeById() throws Exception {
 
 		List<Employee> employee2 = null;
 		try {
-			employee2 = this.employeeService.FindEMployeeB();
+			employee2 = this.employeeService.findEmployeeB();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<>(employee2, HttpStatus.OK);
+		return employee2;
 		
 	}
 }
